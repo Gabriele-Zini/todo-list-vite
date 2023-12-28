@@ -7,7 +7,7 @@ export const store = reactive({
       done: false,
     },
     {
-      text: 'fare la cacca',
+      text: 'pulire casa',
       done: false,
     },
     {

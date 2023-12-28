@@ -18,7 +18,8 @@ export default {
             this.store.toDoList.splice(index, 1)
         },
         addNewToDo() {
-
+            this.store.toDoList.push({ text: this.userInput, done: false });
+            this.userInput = ''
         }
     },
 }
