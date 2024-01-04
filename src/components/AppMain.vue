@@ -124,7 +124,6 @@ export default {
     color: white;
 }
 
-/* Stile per elementi con indice dispari */
 .list-group-item:nth-child(odd) {
     background-color: rgba(0, 0, 0, 0.133);
     color: white;
