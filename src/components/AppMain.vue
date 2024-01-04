@@ -76,7 +76,7 @@ export default {
             <input type="text" @keyup.enter="addNewToDo()" v-model.trim="userInput">
         </div>
         <ul class="list-group mt-5 align-items-center">
-            <li class="list-group-item d-flex justify-content-between col-12 col-md-5 align-items-start"
+            <li class="list-group-item d-flex justify-content-between col-12 col-md-10 col-lg-6 align-items-start"
                 v-for="(toDo, id) in todoList" :key="id">
                 <p :class="{ 'text-decoration-line-through': toDo.done === '1' }"> {{ toDo.text }}</p>
                 <div class="d-flex align-items-center ms-3"><button @click="cancelToDo(toDo.id)"
