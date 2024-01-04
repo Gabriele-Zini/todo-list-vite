@@ -80,7 +80,7 @@ export default {
                 v-for="(toDo, id) in todoList" :key="id">
                 <p :class="{ 'text-decoration-line-through': toDo.done === '1' }"> {{ toDo.text }}</p>
                 <div class="d-flex align-items-center ms-3"><button @click="cancelToDo(toDo.id)"
-                        class="btn btn-danger me-3">X</button> <button class="btn btn-success"
+                        class="btn ms_btn-cancel me-3">X</button> <button class="btn ms_btn-done"
                         @click="done(toDo.id)">done</button>
                 </div>
             </li>
@@ -93,13 +93,30 @@ export default {
 .ms_todo-container {
     padding-top: 70px;
     padding-bottom: 70px;
+
     label {
         font-size: 1.5rem;
         font-weight: bold;
         color: white;
     }
 
-   
+    .ms_btn-done {
+        background-color: rgb(144, 125, 23);
+        color: white;
+
+        &:hover {
+            background-color: rgb(189, 162, 7);
+        }
+    }
+
+    .ms_btn-cancel {
+        background-color: rgb(144, 22, 48);
+        color: white;
+
+        &:hover {
+            background-color: rgb(200, 27, 65);
+        }
+    }
 }
 
 .list-group-item:nth-child(even) {
@@ -111,4 +128,5 @@ export default {
 .list-group-item:nth-child(odd) {
     background-color: rgba(0, 0, 0, 0.133);
     color: white;
-}</style>
+}
+</style>
