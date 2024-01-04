@@ -44,7 +44,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     if (isset($_POST['newTodo'])) {
         $text = $_POST['newTodo'];
-        $done = '0';
+        $done = 0;
 
         $insertQuery = "INSERT INTO `task` (`text`, `done`) VALUES (?, ?)";
         $stmt = $connection->prepare($insertQuery);
@@ -52,7 +52,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       
     } elseif (isset($_POST['toggleId'])) {
         $toggleId = $_POST['toggleId'];
-        $updateQuery ="UPDATE `task` SET `done` = IF(`done` = '1', '0', '1') WHERE `id` = ?";
+        $updateQuery ="UPDATE `task` SET `done` = IF(`done` = 1, 0, 1) WHERE `id` = ?";
         $stmt = $connection->prepare($updateQuery);
         $stmt->bind_param("s", $toggleId);
         $data[] = ['id' => $toggleId];
