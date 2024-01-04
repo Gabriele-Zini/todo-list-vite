@@ -99,9 +99,7 @@ export default {
         color: white;
     }
 
-    .ms_btn {
-        padding: 0;
-    }
+   
 }
 
 .list-group-item:nth-child(even) {
