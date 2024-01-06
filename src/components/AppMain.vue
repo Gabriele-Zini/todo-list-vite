@@ -10,6 +10,9 @@ export default {
 
         }
     },
+    props: {
+        userDataLogin: Object,
+    },
     created() {
         axios.get(this.apiUrl).then((resp) => {
             this.todoList = resp.data;
@@ -71,9 +74,9 @@ export default {
 
 <template>
     <div class="container mt-5 ms_todo-container">
-        <div class="mx-auto d-flex flex-column align-items-center justify-content-center  col-12 col-md-3">
-            <label class="mb-3" for="text">Inserisci un todo</label>
-            <input type="text" @keyup.enter="addNewToDo()" v-model.trim="userInput">
+        <div class="mx-auto d-flex flex-column align-items-center justify-content-center  col-12 col-md-4">
+            <label class="mb-3" for="text">Ciao {{ userDataLogin.username }}, Inserisci un todo</label>
+            <input type="text" class="form-control" @keyup.enter="addNewToDo()" v-model.trim="userInput">
         </div>
         <ul class="list-group mt-5 align-items-center">
             <li class="list-group-item d-flex justify-content-between col-12 col-md-10 col-lg-6 align-items-start"
@@ -91,7 +94,7 @@ export default {
 
 <style lang="scss">
 .ms_todo-container {
-    padding-top: 70px;
+    padding-top: 120px;
     padding-bottom: 70px;
 
     label {
