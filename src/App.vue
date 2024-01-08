@@ -16,6 +16,7 @@ export default {
       usersList: [],
       apiUrl: "http://localhost/boolean/todo-list-vite/server/sign_up.php",
       apiUrlLogin: "http://localhost/boolean/todo-list-vite/server/login.php",
+      apiUrlLogout: "http://localhost/boolean/todo-list-vite/server/logout.php",
       userData: {
         password: '',
         email: '',
@@ -97,17 +98,16 @@ export default {
     },
     logout() {
       const data = {
-        username: this.userDataLogin.username,
-        password: this.userDataLogin.password
+        action: 'logout'
       };
 
       const options = {
         headers: {
-          "Content-Type": "multipart/form-data",
+          "Content-Type": "application/x-www-form-urlencoded",
         },
-      }
+      };
 
-      axios.post(this.apiUrlLogin, data, options).then((resp) => {
+      axios.post(this.apiUrlLogout, data, options).then((resp) => {
         if (resp.data.success) {
           if (this.isLogged === true) {
             this.notSignUp = false;
@@ -116,7 +116,6 @@ export default {
         }
       })
     }
-
   }
 }
 </script>
